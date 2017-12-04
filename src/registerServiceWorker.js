@@ -1,3 +1,6 @@
+// This page was created as part of the create-react-app configuration.
+
+
 // In production, we register a service worker to serve assets from local cache.
 
 // This lets the app load faster on subsequent visits in production, and gives

@@ -6,8 +6,9 @@ export default class Homepage extends Component {
     return (
       <div>
       <p class="home">
-      <iframe width="700" height="450" src="https://www.youtube.com/embed/VQ1up8QNfrU" frameborder="0" allowfullscreen></iframe>
-       </p>
+      // Importing the youtube video
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/J3Ab_HawoAg" frameborder="0" allowfullscreen></iframe>
+      </p>
       </div>
 
 )
