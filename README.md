@@ -1,17 +1,39 @@
-Documentation for your project in the form of a Markdown file called README.md. This documentation is to be a user’s manual for your project. Though the structure of your documentation is entirely up to you, it should be incredibly clear to the staff how and where, if applicable, to compile, configure, and use your project.
-Your documentation should be at least several paragraphs in length. It should not be necessary for us to contact you with questions regarding your project after its submission. Hold our hand with this documentation; be sure to answer in your documentation any questions that you think we might have while testing your work.
-
 QuickNotes is a note-taking app that allows users, after registering and logging
-in, write, edit, and delete their notes.
+in, write, edit, and delete their reminders.
 
-download node.js: https://nodejs.org/en/
+First, install node.js:  https://nodejs.org/en/
 
+Then, download the repository by running the following command in the terminal:  
+```
 git clone https://github.com/akacharia/quickNotes.git
+```
+After that, we're going to get two of the main components of the app: react-router
+and Firebase.
 
-make a firebase account and in src/configure/fire put in the credidentials.
+For react-router, run the following line in the terminal:
+```
+npm install --save react-router
+```
+Now, we're going to configure firebase. Go to https://firebase.google.com/ and
+create a new project.
 
+One you've done that, click "Add Firebase to your web app" and
+go to src/configure/fire.js and paste your api key, authDomain, and database url.
+It should look something like this:
+
+```
+  apiKey: "AIzrEBKdqckeEDHIqhcuqewRXcBUHH7KhPmN1E4geYUHGw",
+  authDomain: "quickNotes-12345.firebaseapp.com",
+  databaseURL: "https://quickNotes-12345.firebaseio.com",
+```
+Now, after cd-ing into the project directory, if you want to in terminal, run:
+```
 cd quickNotes
+npm install -g firebase-tools
+firebase init
+```
+
+```
 npm install
 npm start
-
-react router, download firebase 
+```
