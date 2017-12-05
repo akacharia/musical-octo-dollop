@@ -1,36 +1,57 @@
+A quick note to dispel any confusion: the word "note" and "reminder" are used
+interchangeably within the code.
 
-A "design document" for your project in the form of a file called DESIGN.md that discusses, technically, how you implemented your project and why you made the design decisions you did. Your design document should be at least several paragraphs in length. Whereas your documentation is meant to be a user’s manual, consider your design document your opportunity to give the staff a technical tour of your project underneath its hood.
+Also, a decent amount of the more important resources I used are commented within
+the code because I often referred back to them.
 
-Many of the resources I used are commented within the code because I often referred
-back to them.
+quickNotes is a web app that was created primarily with javascript: it uses
+Node.js backend, JS (with React) frontend, and Firebase. My text-editor was Atom,
+but that decision was more arbitrary.  
 
-quickNotes is a web app that was created primarily with javascript: Node.js
-backend and JS (with React) frontend. The database that I chose to learn about
-and integrate is Firebase.
+One of the most important design decisions I made was choosing to learn more
+about and implement Node, React, and Firebase, none of which I had any experience
+with. I made the decision to try these out, rather than to stay with what I was more
+familiar with (Flask, SQL, Python, Cloud9), for two reasons: I both wanted to
+acquire new skillsets to supplement those that I had already developed throughout
+the course of CS50 and to use languages and software that I felt would be useful
+and relevant to any bigger future projects I might pursue.
 
-Some of the more important design choices that I made were choosing to learn and
-use React and Firebase. I chose to try React over jQuery because  when researching
-what languages I wanted to learn more about I read that John Resig, who created
-jQuery, said that he does a majority of his work in React.
+Despite online comments that mentioned React's fairly steep learning curve and
+beginner-unfriendly nature, I chose to try React over jQuery because in my
+preliminary research I found that John Resig, who created jQuery, recently
+tweeted that he did a majority of his work in React. I also chose Firebase over
+SQL because it contains many other capabilities such as hosting and analytics.
 
-I chose to learn more about firebase because I felt like it had more capabilities than sql:
-firebase, once one learns more about it, has specific ways for authtification with not
-just email, but google, facebook, and phone. It also, like heroku, is pretty big on hosting websites and there is a whole section on analytics and growth.
+Setting up the project itself took time and research, but eventually I ended up
+finding https://github.com/facebookincubator/create-react-app which let me
+get started and skip the build configuration.
 
-Essentially, I chose what I did as opposed to software I was more familiar with because
-not only did I want to learn something new, but I wanted that somethig new to
-be incredibly useful and applicable if I wanted to pursue a bigger project in the
-future.
+In src/configure, fire.js initializes Firebase and configures the Firebase
+JavaScript SDK; essentially, the information that you put in connects to web app
+to your Firebase project online. Putting it in one place makes it easy to export
+to other files. Also, I chose to only integrate the relevant capabilities (auth,
+database, hosting) rather than to include all the capabilities (firestore,
+storage, messaging) so as reduce the amount of code in my app.
 
-The react app has no build configuration because it was bootstrapped of https://github.com/facebookincubator/create-react-app. All the relevant files that I
-worked on are in the src folder. In src/configure, fire.js helps integrate firebase to
-the wb app.
+In src/functions, helpers.js includes most of the firebase-specific functionality
+related with authentication-- registering, logging in, and logging out. Another
+design decision I made was the was registering was implemented: Firebase makes
+it fairly convenient to integrate phone, Google, Facebook, Twitter, and Github login.
+I chose to use email/password because as someone just learning, I wanted to start
+with basic and functional.
 
-hidden has the private routes.
+src/parts consists of all the main components of the app. One of the major
+decisions I made was to use react-router rather than attempting to use booleans
+or other checks in terms of my Shown and Hidden (private/public routes). I chose
+this way because I felt it was more clean and concise; more importantly, with
+much help from the internet, I managed to actually get the routes to work with
+react-router.
 
-One of my decisions was to user react router for the authentication; I could have made provate
-pages by a simple boolean method instead
-
-Another design decision was the login functionality
-
-Another design decision was how to implement the edit note; the idea for that can be credited to my TA Ethan
+src/parts/hidden/reminderComponent includes another design decision: essentially,
+I chose to implement my search function using an editable box rather than
+redirecting to a different page (the credit for this idea goes to my TA Ethan).
+Also, the fact that the database is updated immediately after the user updates it
+was another design decision I made because I really liked the idea of real-time
+updating and how it adds to general user experience; I weighed this against the
+(very true) assumption that the website would never be processing a giant influx
+of data.
