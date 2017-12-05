@@ -3,6 +3,7 @@
 
 import React, { Component } from 'react'
 import { login } from '../functions/helpers'
+import { changePass } from '../functions/helpers'
 
 // If the username/password are incorect, this function sets the error message
 // to reflect that
@@ -14,6 +15,12 @@ function ErrorAlert(error) {
 
 export default class Login extends Component {
   state = { loginMessage: null }
+
+  changePass = () => {
+      changePass(this.email.value)
+        .then(() => this.setState(ErrorAlert(`Reset email sent to ${this.email.value}.`)))
+        .catch((error) => this.setState(ErrorAlert(`Invalid Email`)))
+    }
 
   // If submitted, use the login function (from helpers)
   handleSubmit = (e) => {
@@ -52,6 +59,7 @@ export default class Login extends Component {
                 <div>
                   <span>Error:</span>
                   &nbsp;{this.state.loginMessage}
+                  <a href="#" onClick={this.changePass}> Change Password? </a>
                 </div>
               }
 
