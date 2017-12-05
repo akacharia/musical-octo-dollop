@@ -1,10 +1,11 @@
 import firebase from 'firebase'
 
-// Initializing Firebase with unique keys 
+// Initializing Firebase with unique keys; this can be found after creating a
+// new project
 const config = {
-    apiKey: "AIzaSyAprEBKRXcBKPbsyYefmCP7KhPmN1E4GGw",
-    authDomain: "my-app-8449f.firebaseapp.com",
-    databaseURL: "https://my-app-8449f.firebaseio.com",
+    apiKey: "paste api key",
+    authDomain: "paste domain",
+    databaseURL: "paste url",
   };
 
 firebase.initializeApp(config);
