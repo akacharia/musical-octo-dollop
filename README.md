@@ -32,6 +32,7 @@ cd quickNotes
 npm install -g firebase-tools
 firebase init
 ```
+When you run firebase init, select database. Do the default for everything else. 
 
 ```
 npm install
