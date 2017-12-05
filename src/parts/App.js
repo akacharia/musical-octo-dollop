@@ -40,7 +40,7 @@ function Shown ({component: Component, loggedIn, ...rest}) {
     // logged in, the page redirects to the remainder page
     <Route {...rest} render={(props) => loggedIn === false?
       <Component {...props} />
-      :<Redirect to='/reminders' />}
+      :<Redirect to='/quickNotes' />}
     />
   )
 }
@@ -81,7 +81,7 @@ export default class App extends Component {
         <ul class="nav">
           {/*  Link to Home and Reminders will always be present */}
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/reminders">Reminders</Link></li>
+          <li><Link to="/quickNotes">QuickNotes</Link></li>
 
           {/* Inline function to check if someone is logged in so it will know
           whether to display logout or login/register */}
@@ -97,8 +97,8 @@ export default class App extends Component {
                 <Route path='/' exact component={Home} />
                 <Shown loggedIn={this.state.loggedIn} path='/login' component={Login} />
                 <Shown loggedIn={this.state.loggedIn} path='/register' component={Register} />
-                <Hidden loggedIn={this.state.loggedIn} path='/reminders' component={Reminders} />
-                <Route render={() => <p> 404!!! This page does not exist! </p>} />
+                <Hidden loggedIn={this.state.loggedIn} path='/quickNotes' component={Reminders} />
+                <Route render={() => <p class="home"> 404!!! This page does not exist! </p>} />
               </Switch>
 
         </ul>

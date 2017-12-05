@@ -38,7 +38,7 @@ export default class ReminderInput extends Component{
                   to write notes to the list */}
                 <input
                 class="text-line"
-                placeholder="Write a reminder..."
+                placeholder="Write a quickNote..."
                 value={this.state.newReminderinfo}
                 onChange={this.handleReminder} />
 

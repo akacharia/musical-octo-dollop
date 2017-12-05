@@ -88,6 +88,7 @@ li a:hover {
 	  background: white;
 	  border-radius: 3px;
 	  box-shadow: 3px 3px grey;
+		text-align: center; 
 }
 
 .container {
