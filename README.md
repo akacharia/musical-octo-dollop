@@ -1,5 +1,4 @@
-QuickNotes is a note-taking app that allows users, after registering and logging
-in, write, edit, and delete their reminders.
+QuickNotes is a note-taking app that allows users, after registering and logging in, write, edit, and delete their reminders.
 
 First, install node.js:  https://nodejs.org/en/
 
@@ -7,19 +6,15 @@ Then, download the repository by running the following command in the terminal:
 ```
 git clone https://github.com/akacharia/quickNotes.git
 ```
-After that, we're going to get two of the main components of the app: react-router
-and Firebase.
+After that, we're going to get two of the main components of the app: react-router and Firebase.
 
 For react-router, run the following line in the terminal:
 ```
 npm install --save react-router
 ```
-Now, we're going to configure firebase. Go to https://firebase.google.com/ and
-create a new project.
+Now, we're going to configure firebase. Go to https://firebase.google.com/ and create a new project.
 
-One you've done that, click "Add Firebase to your web app" and
-go to src/configure/fire.js and paste your api key, authDomain, and database url.
-It should look something like this:
+One you've done that, click "Add Firebase to your web app" and go to src/configure/fire.js and paste your api key, authDomain, and database url. It should look something like this:
 
 ```
   apiKey: "AIzrEBKdqckeEDHIqhcuqewRXcBUHH7KhPmN1E4geYUHGw",
