@@ -2,7 +2,7 @@
 // public/private: https://reacttraining.com/react-router/web/example/auth-workflow
 // https://tylermcginnis.com/react-router-protected-routes-authentication/
 
-// This page sets up the navigation bar that allows the user to acsess all the
+// This page sets up the navigation bar that allows the user to access all the
 // other relevant pages
 
 import React, { Component } from 'react'
@@ -76,15 +76,15 @@ export default class App extends Component {
 
   render() {
     return (
-      // React router
+      // React router to navigate between pages
       <Router>
         <ul class="nav">
-          // Link to Home and Reminders will always be present
+          {/*  Link to Home and Reminders will always be present */}
           <li><Link to="/">Home</Link></li>
           <li><Link to="/reminders">Reminders</Link></li>
 
-          // Inline function to check if someone is logged in so it will know
-          // whether to display logout or login/register
+          {/* Inline function to check if someone is logged in so it will know
+          whether to display logout or login/register */}
           {this.state.loggedIn?
                <button className="logout" onClick={() => {logout()}}>Logout</button>
             : <span>
@@ -92,7 +92,7 @@ export default class App extends Component {
                 <li><Link to="/register">Register</Link></li>
               </span>}
 
-              // Setting up the paths for the links using react router
+              {/* Setting up the paths for the links using react router */}
               <Switch>
                 <Route path='/' exact component={Home} />
                 <Shown loggedIn={this.state.loggedIn} path='/login' component={Login} />

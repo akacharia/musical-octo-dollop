@@ -1,3 +1,10 @@
+/* The CSS was taken from a few different websites and was written with a heavy
+reliance on W3Schools. */
+/*https://www.w3schools.com/w3css/w3css_input.asp*/
+/*https://www.w3schools.com/css/css_background.asp*/
+/*https://www.w3schools.com/css/css3_backgrounds.asp*/
+/*https://templated.co/8*/
+
 body{
 	 background: url(http://www.timurtek.com/wp-content/uploads/2014/10/form-bg.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;

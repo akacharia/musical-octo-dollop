@@ -1,3 +1,8 @@
+// Displays all the notes in the database list and the reminder input-box itself
+// Is one of the main connections (because mounting) between the information
+// in the database and what the user can see and acsess.
+// Includes the functions that add, edit, and delete notes to/from the database
+
 import React, { Component } from 'react'
 import ReminderComponent from './ReminderComponent';
 import ReminderInput from './ReminderInput';
@@ -8,47 +13,47 @@ import 'firebase/database'
 import 'semantic-ui-react';
 
 export default class Reminders extends Component {
-////////making REMINDERS!!!!
+// Making NOTES!!!
 
   constructor(props){
     super(props);
-    //binding methods to props
+    // Binding methods to props
     this.addReminder = this.addReminder.bind(this);
 
-    //defining the path to push info to
+    // Defining the path to push info to
     this.db = ref.child(`users/${firebase.auth().currentUser.uid}/reminders`);
 
-    // reminders array being dispayed on page
+    // Reminders array being dispayed on page
     this.state = {
       reminders:[]
     }
   }
 
-  // upodating the ui to match the database
+  // Upodating the ui to match the database
   componentWillMount() {
     const pastReminders = this.state.reminders;
-    //https://firebase.google.com/docs/reference/js/firebase.database.DataSnapshot
-    // data snapshot object passed to callbacks
+    // https://firebase.google.com/docs/reference/js/firebase.database.DataSnapshot
+    // Data snapshot object passed to callbacks
     this.db.on('child_added', snap => {
-      //pushing location and content to pastReminders
+      // Pushing location and content to pastReminders
       pastReminders.push({
         id: snap.key,
         reminderContent: snap.val().reminderContent,
       })
-      // update entire ui array
+      // Update entire ui array
       this.setState({
         reminders: pastReminders
       })
     })
 
-    //checking the array unit with the right key as the id of the unit being removed
+    // Checking the array unit with the right key as the id of the unit being removed
     this.db.on('child_removed', snap => {
       for (var i = 0; i <pastReminders.length; i++) {
         if(pastReminders[i].id === snap.key){
           pastReminders.splice(i,1);
         }
       }
-      // update entire ui array
+      // Update entire ui array
       this.setState({
         reminders: pastReminders
       })
@@ -56,18 +61,20 @@ export default class Reminders extends Component {
 
   }
 
-  // removing reminder from firebase by its id
+  // Removing reminder from firebase by its id
   removeReminder(id) {
    ref.child(`users/${firebase.auth().currentUser.uid}/reminders/${id}`).remove();
   }
 
+  // Allows user to update the note by going to it's id and rewriting the reminderContent
+  // The fact that the note is updated real-time is a design choice
   updateReminder(id, content) {
     console.log(id);
     console.log(content);
     ref.child(`users/${firebase.auth().currentUser.uid}/reminders/${id}`).update({reminderContent: content});
   }
 
-  // adding reminder to firebase
+  // Adding reminder to firebase
   addReminder(reminder) {
     this.db.push().set({reminderContent: reminder})
   }
@@ -78,8 +85,8 @@ export default class Reminders extends Component {
         <div className="reminderinput">
         <div class="reminderlogin">
         {
-          // callback funct w mapping https://www.w3schools.com/jsref/jsref_map.asp
-          // array w content, id, key, remove method
+          // Callback funct w mapping https://www.w3schools.com/jsref/jsref_map.asp
+          // Array w content, id, key, remove method 
           this.state.reminders.map((reminder) => {
             return (
               <ReminderComponent updateReminder = {this.updateReminder} reminderContent={reminder.reminderContent}
@@ -91,7 +98,7 @@ export default class Reminders extends Component {
             )
           })
         }
-        {/* adding reminder bar */}
+        {/* Adding reminder bar */}
         <ReminderInput addReminder={this.addReminder}/>
 
         </div>

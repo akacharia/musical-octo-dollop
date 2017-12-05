@@ -1,3 +1,6 @@
+// Provides the app's login functionality. Passes the user input and using
+// helpers.js uploads the info to the database
+
 import React, { Component } from 'react'
 import { login } from '../functions/helpers'
 
@@ -29,21 +32,21 @@ export default class Login extends Component {
           <div class="login">
             <h1> Login! </h1>
 
-              // Email input box
+              {/* Email input box */}
               <input class="text-line"
                 placeholder= "type email here"
-                // Setting ref so it can be saved
+                 // Setting ref so it can be saved
                 ref={(email) => this.email = email}/>
 
               <br/>
 
-              // Password input box
+              {/* Password input box */}
               <input class="text-line"
                 placeholder= "type password here"
                 type="password"
                 ref={(password) => this.password = password} />
 
-              // Displays error message if login is incorrect (funct)
+              {/* Displays error message if login is incorrect (funct) */}
               {
                 this.state.loginMessage &&
                 <div>
@@ -53,7 +56,7 @@ export default class Login extends Component {
               }
 
             <br/>
-            // Login button
+            {/* Login button */}
             <button className="submit" type="submit">Login</button>
           </div>
         </form>
