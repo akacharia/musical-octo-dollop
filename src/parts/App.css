@@ -136,3 +136,7 @@ br {
     border-bottom: solid #eeeeee 1px;
     padding: 3px 10px;
 }
+.error-alert {
+	color: red;
+	font-size: 12px;
+}

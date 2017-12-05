@@ -29,6 +29,14 @@ export default class Register extends Component {
 
             <h1> Register! </h1>
               {/* Email input */}
+              {/* Inline funct that happens if there is an error */}
+            {
+            this.state.registerError &&
+            <div className= "error-alert" role="alert">
+              <span>Error:</span>
+              &nbsp;{this.state.registerError}
+            </div>
+            }
               <input class="text-line"
                 placeholder= "type email here"
                 ref={(email) => this.email = email}/>
@@ -37,14 +45,7 @@ export default class Register extends Component {
                 placeholder= "type password here"
                 type="password"
                 ref={(password) => this.password = password}/>
-                {/* Inline funct that happens if there is an error */}
-            {
-              this.state.registerError &&
-              <div role="alert">
-                <span>Error:</span>
-                &nbsp;{this.state.registerError}
-              </div>
-            }
+
             {/* Submit registration */}
             <br/><button className= "submit" type="submit">Register</button>
           </div>

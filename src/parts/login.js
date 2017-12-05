@@ -18,8 +18,8 @@ export default class Login extends Component {
 
   changePass = () => {
       changePass(this.email.value)
-        .then(() => this.setState(ErrorAlert(`Reset email sent to ${this.email.value}.`)))
-        .catch((error) => this.setState(ErrorAlert(`Invalid Email`)))
+        .then(() => this.setState(ErrorAlert(`Reset info sent to ${this.email.value}.`)))
+        .catch((error) => this.setState(ErrorAlert(`bad email`)))
     }
 
   // If submitted, use the login function (from helpers)
@@ -29,7 +29,7 @@ export default class Login extends Component {
       // if there's a
       .catch((error) => {
           // If the username/password can't be found, changing login method state
-          this.setState(ErrorAlert('Incorrect username/password.'))
+          this.setState(ErrorAlert('bad username/password.'))
         })
   }
 
@@ -38,6 +38,16 @@ export default class Login extends Component {
         <form id="container" className="input" onSubmit={this.handleSubmit}>
           <div class="login">
             <h1> Login! </h1>
+
+            {
+              this.state.loginMessage &&
+              <div className= "error-alert">
+                <span>Error:</span>
+                &nbsp;{this.state.loginMessage}
+                <br/>
+                <a href="#" onClick={this.changePass}> change your password? </a>
+              </div>
+            }
 
               {/* Email input box */}
               <input class="text-line"
@@ -54,14 +64,7 @@ export default class Login extends Component {
                 ref={(password) => this.password = password} />
 
               {/* Displays error message if login is incorrect (funct) */}
-              {
-                this.state.loginMessage &&
-                <div>
-                  <span>Error:</span>
-                  &nbsp;{this.state.loginMessage}
-                  <a href="#" onClick={this.changePass}> Change Password? </a>
-                </div>
-              }
+
 
             <br/>
             {/* Login button */}
