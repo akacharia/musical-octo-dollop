@@ -15,6 +15,10 @@ export function newUser (email, password) {
     .then(infoTab)
 }
 
+export function changePass (email) {
+  return firebaseAuth().sendPasswordResetEmail(email)
+}
+
 // Login function
 export function login (email, password) {
   return firebaseAuth().signInWithEmailAndPassword(email, password)
