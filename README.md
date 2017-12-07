@@ -1,3 +1,5 @@
+Link to the video: https://youtu.be/ithY4og5oTU
+
 QuickNotes is a note-taking app that allows users, after registering and logging in, write, edit, and delete their reminders.
 
 First, install node.js:  https://nodejs.org/en/
