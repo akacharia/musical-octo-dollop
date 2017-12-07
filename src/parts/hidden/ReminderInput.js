@@ -1,6 +1,6 @@
 // This allows the user to write a note; it consists of a text-box and a button
 // The note is then pushed to the user's database
-//https://www.youtube.com/watch?v=-RtJroTMDf4&feature=youtu.be
+// https://www.youtube.com/watch?v=-RtJroTMDf4&feature=youtu.be
 
 import React, { Component } from 'react';
 
@@ -10,7 +10,7 @@ export default class ReminderInput extends Component{
         this.state = {
             newReminderinfo: '',
         };
-        // Binding methods for reference
+        // Binding "this" for the instances of the object/ later reference
         this.handleReminder = this.handleReminder.bind(this);
         this.writeReminder = this.writeReminder.bind(this);
     }
@@ -25,7 +25,7 @@ export default class ReminderInput extends Component{
     // Allows user to push note to the database
     writeReminder(){
         this.props.addReminder(this.state.newReminderinfo);
-        // After note is pushed, reset state
+        // After note is pushed, reset state to null
         this.setState({
             newReminderinfo: '',
         })
@@ -34,14 +34,15 @@ export default class ReminderInput extends Component{
     render(){
         return(
             <div>
-                {/* Creates the textbox and the submit button that allows user
-                  to write notes to the list */}
+                {/* Creates the textbox; as the user types, the state of the
+                  box is changed with the handler */}
                 <input
                 class="text-line"
                 placeholder="Write a quickNote..."
                 value={this.state.newReminderinfo}
                 onChange={this.handleReminder} />
-
+                {/* When the button is clicked, the content is pushed to the
+                  addReminder function */}
                 <button onClick={this.writeReminder}>Add</button>
             </div>
         )

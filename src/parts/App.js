@@ -52,7 +52,7 @@ export default class App extends Component {
   }
 
   // Happens before the page renders (mounts on to DOM), checking if the user
-  //is authed against fitrebase
+  // is authed against fitrebase
   componentDidMount () {
     this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
       if (user) {
@@ -92,7 +92,7 @@ export default class App extends Component {
                 <li><Link to="/register">Register</Link></li>
               </span>}
 
-              {/* Setting up the paths for the links using react router */}
+              {/* Setting up the paths for the links using react-router */}
               <Switch>
                 <Route path='/' exact component={Home} />
                 <Shown loggedIn={this.state.loggedIn} path='/login' component={Login} />

@@ -1,7 +1,7 @@
 // Displays all the notes in the database list and the reminder input-box itself
-// Is one of the main connections (because mounting) between the information
-// in the database and what the user can see and acsess.
+// Is one of the main connections (because mounting) between the information in the database and what the user can see and acsess.
 // Includes the functions that add, edit, and delete notes to/from the database
+// This page essentially imports the functionality of ReminderInput and ReminderComponent and presents it to the user
 
 import React, { Component } from 'react'
 import ReminderComponent from './ReminderComponent';
@@ -10,20 +10,17 @@ import { ref } from '../../configure/fire'
 import firebase from 'firebase'
 import 'firebase/database'
 
-import 'semantic-ui-react';
-
 export default class Reminders extends Component {
-// Making NOTES!!!
 
   constructor(props){
     super(props);
     // Binding methods to props
     this.addReminder = this.addReminder.bind(this);
 
-    // Defining the path to push info to
+    // Defining the path to push info to for conciseness
     this.db = ref.child(`users/${firebase.auth().currentUser.uid}/reminders`);
 
-    // Reminders array being dispayed on page
+    // Reminders array that's being dispayed on page
     this.state = {
       reminders:[]
     }
@@ -67,7 +64,7 @@ export default class Reminders extends Component {
   }
 
   // Allows user to update the note by going to it's id and rewriting the reminderContent
-  // The fact that the note is updated real-time is a design choice
+  // The fact that the note is updated real-time is a design choice that's explained in the doc
   updateReminder(id, content) {
     console.log(id);
     console.log(content);
@@ -85,8 +82,10 @@ export default class Reminders extends Component {
         <div className="reminderinput">
         <div class="reminderlogin">
         {
-          // Callback funct w mapping https://www.w3schools.com/jsref/jsref_map.asp
-          // Array w content, id, key, remove method 
+          // Callback functiom with mapping https://www.w3schools.com/jsref/jsref_map.asp
+          // Array with content, id, key, remove method
+          // The reminder ID and the Key are both there to keep everything
+          // consistent because of the deletion function
           this.state.reminders.map((reminder) => {
             return (
               <ReminderComponent updateReminder = {this.updateReminder} reminderContent={reminder.reminderContent}

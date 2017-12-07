@@ -45,7 +45,7 @@ export default class Login extends Component {
                 <span>Error:</span>
                 &nbsp;{this.state.loginMessage}
                 <br/>
-                <a href="#" onClick={this.changePass}> change your password? </a>
+                <a onClick={this.changePass}> change your password? </a>
               </div>
             }
 
