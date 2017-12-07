@@ -1,3 +1,4 @@
+Alicia, cs50
 Link to the video: https://youtu.be/ithY4og5oTU
 
 QuickNotes is a note-taking app that allows users, after registering and logging in, write, edit, and delete their reminders.
@@ -29,7 +30,7 @@ cd quickNotes
 npm install -g firebase-tools
 firebase init
 ```
-When you run firebase init, select database. Do the default for everything else. 
+When you run firebase init, select database. Do the default for everything else.
 
 ```
 npm install
