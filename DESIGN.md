@@ -1,7 +1,7 @@
 I just want to preface my design doc my commenting on the immense amount of time I spent on this project; I think I did end up spending at least 1/3 of my time doing general CS50 work on this project. 
 The main reason for that was because of the languages and tools I used: quickNotes is a web app that was created primarily with Javascript: it uses Node.js backend, JS (with React) frontend, and Firebase. My text-editor was Atom, but that decision was more arbitrary.  
 
-Some context (from other people) into the difficulty of learning React; some find it hard, some don’t but it’s good for a fairly non-handpicked sampling:  https://www.quora.com/Can-a-beginner-learn-ReactJS
+Some context (from other people) into the difficulty of learning React; some find it hard, some don’t but it’s good for a fairly non-cherrypicked sampling:  https://www.quora.com/Can-a-beginner-learn-ReactJS
 This is just the first search result but, while some people do recommend it and do say that beginners (like myself) can learn react, many also do point out that it is hard—
 
 “However if you’re a beginner, I’d offer a word of caution. If you’ve got the spine for it, press onward and learn the big-boy tools. Otherwise, you may want to consider learning something less conceptually complex like jQuery or Angular first. Get to React as soon as you’re ready.”
